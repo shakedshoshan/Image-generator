@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ImageCard from './ImageCard.jsx';
 
-const ImagesCrusel = ({ images }) => {
+const ImagesCrusel = ({ images, isSelected }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const ImagesCrusel = ({ images }) => {
     <div className="mt-6 grid grid-cols-4 gap-4">
       {images.map((image, index) => (
             <div key={index} className="relative">
-                <ImageCard image={image} index={index} totalImages={images.length} />
+                <ImageCard image={image} index={index} totalImages={images.length} isSelected={isSelected} />
             </div>
           ))}
     </div>

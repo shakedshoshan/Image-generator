@@ -32,7 +32,7 @@ const GenerateImage = () => {
       </button>
       {generatedImage && (
         <div className="">
-            <ImagesCrusel images={generatedImage} />        
+            <ImagesCrusel images={generatedImage} isSelected={false} />        
           {/* {images.map((image, index) => (
             <div key={index} className="relative">
               <img 

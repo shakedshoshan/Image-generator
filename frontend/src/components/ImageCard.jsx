@@ -1,12 +1,25 @@
 import React, { useState } from 'react';
+import useSaveImages from '../hooks/useSaveImages';
+import useDeleteImage from '../hooks/useDeleteImage';
+import { useAuthContext } from '../context/AuthContext';
 
-const ImageCard = ({ image, index }) => {
+const ImageCard = ({ image, index, isSelected }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const [isSelected, setIsSelected] = useState(false);
+  const [isSelectedTemp, setIsSelectedTemp] = useState(isSelected);
+  const { authUser } = useAuthContext();
+  const { saveImage } = useSaveImages();
+  const { deleteImage } = useDeleteImage();
 
-  const handleSelect = (e) => {
-    e.stopPropagation();
-    setIsSelected(!isSelected);
+  
+  const handleSelect = (image) => {
+    
+    // console.log(image);
+    if(!isSelected){
+        saveImage(authUser.id, image);
+    }else{
+        deleteImage(authUser.id, image);
+    }
+    setIsSelectedTemp(!isSelectedTemp);
   };
 
   const handleDownload = (e) => {
@@ -30,15 +43,15 @@ const ImageCard = ({ image, index }) => {
         alt={`Generated ${index + 1}`} 
         className="w-full h-full object-cover rounded-md shadow-md" 
       />
-      {(isHovered || isSelected) && (
+      {(isHovered || isSelectedTemp) && (
         <>
           <div 
             className="absolute top-2 right-2 bg-white bg-opacity-75  rounded-full cursor-pointer"
-            onClick={handleSelect}
+            onClick={() => handleSelect(image)}
           >
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
-              className={`h-7 w-7 rounded-full ${isSelected ? 'bg-green-500 text-white' : 'text-gray-500'}`}
+              className={`h-7 w-7 rounded-full ${isSelectedTemp ? 'bg-green-500 text-white' : 'text-gray-500'}`}
               fill="none" 
               viewBox="0 0 24 24" 
               stroke="currentColor"
