@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
 import { insertImage, deleteImage, getAllUserImages } from '../controllers/images.controller.js';
-import protectRoute from '../middleware/protectRoute.js';
+// import protectRoute from '../middleware/protectRoute.js';
 
 const router = Router();
 

@@ -13,20 +13,22 @@ const useLogin = () => {
 		if (!success) return;
 		setLoading(true);
 		try {
-			const res = await axios.post("http://localhost:5000/api/auth/login", { username, password }, {
-				headers: { "Content-Type": "application/json" }
+			const res = await fetch("http://localhost:5000/api/auth/login", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				credentials: "include",
+				body: JSON.stringify({ username, password })
 			});
-            // console.log(res.json());
 
-			const data = res.data;
+			const data = await res.json();
+
 			if (data.error) {
 				throw new Error(data.error);
 			}
 
+
 			localStorage.setItem("chat-user", JSON.stringify(data));
-            // console.log(data);
 			setAuthUser(data);
-            
 		} catch (error) {
 			toast.error(error.message);
 		} finally {

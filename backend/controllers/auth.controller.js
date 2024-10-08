@@ -4,6 +4,7 @@ import  pool  from "../db.js";
 
 export const login = async (req, res) => {
 	try {
+        
 		const { username, password } = req.body;
         
 		const result = await pool.query("SELECT * FROM users WHERE username = $1", [username]);
