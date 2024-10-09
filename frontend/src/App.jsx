@@ -6,13 +6,14 @@ import SignUp from "./pages/Signup"; // Updated casing to match the file name
 import Header from "./components/Header";
 import { Toaster } from "react-hot-toast";
 import Profile from "./pages/Profile";
-import { useAuthContext } from "./context/AuthContext";
-// import useAuth from "./zustand/useAuth";
+// import { useAuthContext } from "./context/AuthContext";
+import useAuth from "./zustand/useAuth";
 
 
 function App() {
-	const { authUser } = useAuthContext();
-  // console.log(authUser);
+	const { authUser } = useAuth();
+	// const authUser = getAuthUser();
+  	
 	return (
 		<div className=' flex flex-col'>
 			{authUser && <Header userName={authUser.username} userImage={authUser.profilePic} />}

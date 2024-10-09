@@ -1,12 +1,11 @@
- // Start of Selection
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { useAuthContext } from "../context/AuthContext";
+import useAuth from "../zustand/useAuth";
 import axios from "axios";
 
 const useLogout = () => {
 	const [loading, setLoading] = useState(false);
-	const { setAuthUser } = useAuthContext();
+	const { setAuthUser } = useAuth();
 
 	const logout = async () => {
 		setLoading(true);
@@ -21,6 +20,7 @@ const useLogout = () => {
 
 			localStorage.removeItem("chat-user");
 			setAuthUser(null);
+			// setAuthUser(null);	
 		} catch (error) {
 			toast.error(error.message);
 		} finally {

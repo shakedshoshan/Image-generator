@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useAuthContext } from '../context/AuthContext';  
+// import { useAuthContext } from '../context/AuthContext';  
 import useGetUserImages from '../hooks/useGetUserImages';
 import ImagesCrusel from '../components/ImagesCrusel';
-
+import useAuth from '../zustand/useAuth';
 const Profile = () => {
-  const { authUser } = useAuthContext();
+  const { authUser } = useAuth();
   const { images } = useGetUserImages(authUser.id);
 
   return (

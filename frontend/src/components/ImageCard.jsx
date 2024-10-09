@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import useSaveImages from '../hooks/useSaveImages';
 import useDeleteImage from '../hooks/useDeleteImage';
-import { useAuthContext } from '../context/AuthContext';
+import useAuth from '../zustand/useAuth';
+
 
 const ImageCard = ({ image, index, isSelected }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isSelectedTemp, setIsSelectedTemp] = useState(isSelected);
-  const { authUser } = useAuthContext();
+  const { authUser } = useAuth();  
   const { saveImage } = useSaveImages();
   const { deleteImage } = useDeleteImage();
 

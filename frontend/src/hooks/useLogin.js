@@ -2,12 +2,12 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { useAuthContext } from "../context/AuthContext";
 import axios from "axios";
-// import useAuth from "../zustand/useAuth";
+import useAuth from "../zustand/useAuth";
 
 const useLogin = () => {
 	const [loading, setLoading] = useState(false);
-	const { setAuthUser } = useAuthContext();
-
+	// const { setAuthUser } = useAuthContext();
+	const { setAuthUser } = useAuth();
 	const login = async (username, password) => {
 		const success = handleInputErrors(username, password);
 		if (!success) return;
@@ -29,6 +29,7 @@ const useLogin = () => {
 
 			localStorage.setItem("chat-user", JSON.stringify(data));
 			setAuthUser(data);
+			// setAuthUser(data);
 		} catch (error) {
 			toast.error(error.message);
 		} finally {
