@@ -7,14 +7,22 @@ const useGetUserImages = (userId) => {
 
   useEffect(() => {
     const fetchImages = async () => {
-      try {
-        const response = await axios.get(`http://localhost:5000/api/images/user/${userId}`);
-        setImages(response.data);
-      } catch (err) {
-        setError(err);
-      } finally {
-
-      }
+          // Start of Selection
+          try {
+            const response = await fetch(`http://localhost:5000/api/images/user/${userId}`, {
+              method: 'GET',
+              credentials: 'include',
+            });
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            setImages(data);
+          } catch (err) {
+            setError(err);
+          } finally {
+      
+          }
     };
 
     if (userId) {

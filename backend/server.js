@@ -12,9 +12,11 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-    origin: 'http://localhost:5173',
-    credentials: true,
-  };
+  // origin: ["https://chat-app-fufd.onrender.com"],
+  origin: ["http://localhost:5173"],
+  methods: ["GET", "POST"],
+  credentials: true,
+}
 
 // Middleware
 app.use(cors(corsOptions));

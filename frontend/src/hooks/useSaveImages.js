@@ -7,11 +7,15 @@ const useSaveImages = () => {
     const saveImage = async (userId, imageUrl) => {
         
         try {
-        const response = await axios.post('http://localhost:5000/api/images', {userId, imageUrl} , {
-            headers: {
-            'Content-Type': 'application/json',
-            },
-        });
+            // Start of Selection
+            const response = await fetch('http://localhost:5000/api/images', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'include',
+                body: JSON.stringify({ userId, imageUrl }),
+            });
         console.log(response);
         return response;
         } catch (err) {
