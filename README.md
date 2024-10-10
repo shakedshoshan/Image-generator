@@ -4,8 +4,9 @@
 
 This web application allows users to generate images based on text prompts. It includes features such as user authentication, image generation, and profile management. The application is built with a modern tech stack using a **React frontend**, an **Express backend**, and **PostgreSQL** as DataBase.
 
-![Screenshot-AlgorithmVisualizer 1](https://github.com/user-attachments/assets/93d40a5f-d2b1-4946-831b-974f5965b32d)
-![Screenshot-AlgorithmVisualizer 2](https://github.com/user-attachments/assets/06d7e1cb-99f2-4c4e-a4d0-74a996b59d1a)
+![Screenshot-imageGenerator2 png ](https://github.com/user-attachments/assets/4d27dd41-c923-4729-a143-c3838eeb11d6)
+![Screenshot-imageGenerator1](https://github.com/user-attachments/assets/60a8d763-804f-4029-841b-18978303d15b)
+
 
 ## 🚀 Features
 
