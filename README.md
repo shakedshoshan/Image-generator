@@ -2,7 +2,7 @@
 
 ## 📚 Project Description
 
-This web application allows users to generate images based on text prompts. It includes features such as user authentication, image generation, and profile management. The application is built with a modern tech stack using a **React frontend** and an **Express backend**.
+This web application allows users to generate images based on text prompts. It includes features such as user authentication, image generation, and profile management. The application is built with a modern tech stack using a **React frontend**, an **Express backend**, and **PostgreSQL** as DataBase.
 
 ![Screenshot-AlgorithmVisualizer 1](https://github.com/user-attachments/assets/93d40a5f-d2b1-4946-831b-974f5965b32d)
 ![Screenshot-AlgorithmVisualizer 2](https://github.com/user-attachments/assets/06d7e1cb-99f2-4c4e-a4d0-74a996b59d1a)
@@ -49,11 +49,11 @@ This web application allows users to generate images based on text prompts. It i
 ### Backend
 
 - **Express**: A web framework for building the backend API.
-- **Mongoose**: For interacting with a MongoDB database.
+- **PostgreSQL**: Used as the main database, connected via the `pg` package.
 - **JWT (JSON Web Tokens)**: For handling authentication.
 - **Bcryptjs**: For hashing passwords to enhance security.
 - **Socket.io**: For real-time communication, potentially for chat or notifications.
-- **PostgreSQL**: Used as the main database, connected via the `pg` package.
+
 
 ### Development Tools
 
